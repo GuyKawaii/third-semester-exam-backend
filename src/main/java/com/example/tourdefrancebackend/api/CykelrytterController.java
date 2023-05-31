@@ -42,20 +42,6 @@ public class CykelrytterController {
         return new ResponseEntity<>(cykelrytterDTO, HttpStatus.OK);
     }
 
-//    // todo move to util class
-//    private CykelrytterDTO cykelrytterToDTO(Cykelrytter cykelrytter) {
-//        CykelrytterDTO cykelrytterDTO = new CykelrytterDTO();
-//        BeanUtils.copyProperties(cykelrytter, cykelrytterDTO);
-//        cykelrytterDTO.setCykelhold(convertToCykelholdDTO(cykelrytter.getCykelhold()));
-//        return cykelrytterDTO;
-//    }
-//
-//    private CykelholdDTO convertToCykelholdDTO(Cykelhold cykelhold) {
-//        return new CykelholdDTO(cykelhold.getId(), cykelhold.getNavn());
-//    }
-
-
-
     @GetMapping("/hold/{holdId}")
     public ResponseEntity<List<Cykelrytter>> getCykelryttereByHoldId(@PathVariable Long holdId) {
         List<Cykelrytter> cykelryttere = cykelrytterService.getCykelryttereByHoldId(holdId);
@@ -68,7 +54,7 @@ public class CykelrytterController {
         return new ResponseEntity<>(createdCykelrytter, HttpStatus.CREATED);
     }
 
-    @PutMapping("/{id}") // todo check simplet way to update
+    @PutMapping("/{id}")
     public ResponseEntity<Cykelrytter> updateCykelrytter(@PathVariable Long id, @RequestBody Cykelrytter Cykelrytter) {
         Cykelrytter updatedCykelrytter = cykelrytterService.updateCykelrytter(id, Cykelrytter);
         return new ResponseEntity<>(updatedCykelrytter, HttpStatus.OK);
@@ -82,7 +68,7 @@ public class CykelrytterController {
 
     // extra
     @GetMapping("/jersey")
-    public List<JerseysDTO> getTrøjer() {
-        return cykelrytterService.getTrøjer();
+    public List<JerseysDTO> getJersey() {
+        return cykelrytterService.getJersey();
     }
 }

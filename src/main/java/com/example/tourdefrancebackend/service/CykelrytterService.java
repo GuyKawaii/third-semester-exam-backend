@@ -12,8 +12,6 @@ import java.util.List;
 
 import java.util.Optional;
 
-import static com.example.tourdefrancebackend.enums.Jersey.*;
-
 @Service
 public class CykelrytterService {
 
@@ -62,7 +60,7 @@ public class CykelrytterService {
         return cykelrytterRepository.findByCykelholdId(holdId);
     }
 
-    public List<JerseysDTO> getTrøjer() {
+    public List<JerseysDTO> getJersey() {
         return calculateJerseys();
     }
 
@@ -70,7 +68,7 @@ public class CykelrytterService {
         Cykelrytter yellowJerseyRider = cykelrytterRepository.findFirstByOrderBySamletTidAsc();
         Cykelrytter mountainJerseyRider = cykelrytterRepository.findFirstByOrderByBjergpointDesc();
         Cykelrytter greenJerseyRider = cykelrytterRepository.findFirstByOrderBySpurtpointDesc();
-        Cykelrytter whiteJerseyRider = cykelrytterRepository.findFirstBySamletTidOrderByAlderAsc(26);
+        Cykelrytter whiteJerseyRider = cykelrytterRepository.findFirstBySamletTidOrderByAlderAscLessThan(26);
 
         List<JerseysDTO> jerseys = new ArrayList<>();
 
