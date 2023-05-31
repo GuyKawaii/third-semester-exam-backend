@@ -1,0 +1,1 @@
+Use a specific data transfer object (DTO) when an entity does not match the optimal format for the frontend
