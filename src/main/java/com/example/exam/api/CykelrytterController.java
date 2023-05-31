@@ -1,10 +1,10 @@
-package com.example.tourdefrancebackend.api;
+package com.example.exam.api;
 
-import com.example.tourdefrancebackend.dto.CykelrytterDTO;
-import com.example.tourdefrancebackend.dto.JerseysDTO;
-import com.example.tourdefrancebackend.entity.Cykelrytter;
-import com.example.tourdefrancebackend.service.CykelrytterService;
-import com.example.tourdefrancebackend.utility.DTOConverter;
+import com.example.exam.dto.CykelrytterDTO;
+import com.example.exam.dto.JerseysDTO;
+import com.example.exam.entity.Cykelrytter;
+import com.example.exam.service.CykelrytterService;
+import com.example.exam.utility.DTOConverter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

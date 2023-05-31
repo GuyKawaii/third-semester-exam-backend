@@ -1,9 +1,9 @@
-package com.example.tourdefrancebackend.configuration;
+package com.example.exam.configuration;
 
-import com.example.tourdefrancebackend.entity.Cykelhold;
-import com.example.tourdefrancebackend.entity.Cykelrytter;
-import com.example.tourdefrancebackend.repository.CykelholdRepository;
-import com.example.tourdefrancebackend.repository.CykelrytterRepository;
+import com.example.exam.entity.Cykelhold;
+import com.example.exam.entity.Cykelrytter;
+import com.example.exam.repository.CykelholdRepository;
+import com.example.exam.repository.CykelrytterRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

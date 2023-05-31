@@ -1,6 +1,6 @@
-package com.example.tourdefrancebackend.repository;
+package com.example.exam.repository;
 
-import com.example.tourdefrancebackend.entity.Cykelrytter;
+import com.example.exam.entity.Cykelrytter;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

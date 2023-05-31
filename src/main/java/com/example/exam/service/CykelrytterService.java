@@ -1,9 +1,9 @@
-package com.example.tourdefrancebackend.service;
+package com.example.exam.service;
 
-import com.example.tourdefrancebackend.dto.JerseysDTO;
-import com.example.tourdefrancebackend.entity.Cykelrytter;
-import com.example.tourdefrancebackend.repository.CykelrytterRepository;
-import com.example.tourdefrancebackend.utility.DTOConverter;
+import com.example.exam.dto.JerseysDTO;
+import com.example.exam.entity.Cykelrytter;
+import com.example.exam.repository.CykelrytterRepository;
+import com.example.exam.utility.DTOConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

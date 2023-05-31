@@ -1,7 +1,5 @@
-package com.example.tourdefrancebackend.entity;
+package com.example.exam.dto;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,20 +9,13 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-public class Cykelrytter {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class JerseysDTO {
     private Long id;
-
     private String navn;
     private int alder;
     private int samletTid;
     private int bjergpoint;
     private int spurtpoint;
-
-    @ManyToOne
-    @JsonBackReference
-    private Cykelhold cykelhold;
+    private CykelholdDTO Cykelhold;
+    private String jersey;
 }
-

@@ -1,13 +1,10 @@
-package com.example.tourdefrancebackend.api;
+package com.example.exam.api;
 
-import com.example.tourdefrancebackend.entity.Cykelhold;
-import com.example.tourdefrancebackend.service.CykelholdService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.exam.entity.Cykelhold;
+import com.example.exam.service.CykelholdService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/cykelhold")

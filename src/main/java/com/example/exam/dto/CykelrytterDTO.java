@@ -1,6 +1,5 @@
-package com.example.tourdefrancebackend.dto;
+package com.example.exam.dto;
 
-import com.example.tourdefrancebackend.enums.Jersey;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,7 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class JerseysDTO {
+public class CykelrytterDTO {
     private Long id;
     private String navn;
     private int alder;
@@ -18,5 +17,4 @@ public class JerseysDTO {
     private int bjergpoint;
     private int spurtpoint;
     private CykelholdDTO Cykelhold;
-    private String jersey;
 }

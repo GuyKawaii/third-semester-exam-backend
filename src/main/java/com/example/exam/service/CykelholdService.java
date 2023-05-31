@@ -1,11 +1,9 @@
-package com.example.tourdefrancebackend.service;
+package com.example.exam.service;
 
-import com.example.tourdefrancebackend.entity.Cykelhold;
-import com.example.tourdefrancebackend.entity.Cykelhold;
-import com.example.tourdefrancebackend.repository.CykelholdRepository;
+import com.example.exam.entity.Cykelhold;
+import com.example.exam.repository.CykelholdRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service

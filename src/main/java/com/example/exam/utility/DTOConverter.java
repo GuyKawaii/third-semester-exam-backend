@@ -1,11 +1,10 @@
-package com.example.tourdefrancebackend.utility;
+package com.example.exam.utility;
 
-import com.example.tourdefrancebackend.dto.CykelholdDTO;
-import com.example.tourdefrancebackend.dto.CykelrytterDTO;
-import com.example.tourdefrancebackend.dto.JerseysDTO;
-import com.example.tourdefrancebackend.entity.Cykelhold;
-import com.example.tourdefrancebackend.entity.Cykelrytter;
-import com.example.tourdefrancebackend.enums.Jersey;
+import com.example.exam.dto.CykelholdDTO;
+import com.example.exam.dto.CykelrytterDTO;
+import com.example.exam.dto.JerseysDTO;
+import com.example.exam.entity.Cykelhold;
+import com.example.exam.entity.Cykelrytter;
 import org.springframework.beans.BeanUtils;
 
 public class DTOConverter {

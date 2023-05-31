@@ -1,4 +1,4 @@
-package com.example.tourdefrancebackend.enums;
+package com.example.exam.enums;
 
 public enum Jersey {
     NONE,
