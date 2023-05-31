@@ -7,4 +7,12 @@ import java.util.List;
 
 public interface CykelrytterRepository extends JpaRepository<Cykelrytter, Long> {
     List<Cykelrytter> findByCykelholdId(Long holdId);
+
+    Cykelrytter findFirstByOrderBySamletTidAsc();
+
+    Cykelrytter findFirstByOrderByBjergpointDesc();
+
+    Cykelrytter findFirstByOrderBySpurtpointDesc();
+
+    Cykelrytter findFirstBySamletTidOrderByAlderAsc(int i);
 }

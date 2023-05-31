@@ -1,11 +1,10 @@
 package com.example.tourdefrancebackend.api;
 
-import com.example.tourdefrancebackend.dto.CykelholdDTO;
 import com.example.tourdefrancebackend.dto.CykelrytterDTO;
-import com.example.tourdefrancebackend.entity.Cykelhold;
+import com.example.tourdefrancebackend.dto.JerseysDTO;
 import com.example.tourdefrancebackend.entity.Cykelrytter;
 import com.example.tourdefrancebackend.service.CykelrytterService;
-import org.springframework.beans.BeanUtils;
+import com.example.tourdefrancebackend.utility.DTOConverter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -30,7 +29,7 @@ public class CykelrytterController {
         List<Cykelrytter> cykelryttere = cykelrytterService.getAllCykelryttere();
         List<CykelrytterDTO> cykelrytterDTOs = new ArrayList<>();
         for (Cykelrytter cykelrytter : cykelryttere) {
-            CykelrytterDTO cykelrytterDTO = cykelrytterToDTO(cykelrytter);
+            CykelrytterDTO cykelrytterDTO = DTOConverter.cykelrytterToDTO(cykelrytter);
             cykelrytterDTOs.add(cykelrytterDTO);
         }
         return new ResponseEntity<>(cykelrytterDTOs, HttpStatus.OK);
@@ -39,21 +38,21 @@ public class CykelrytterController {
     @GetMapping("/{id}")
     public ResponseEntity<CykelrytterDTO> getCykelrytterById(@PathVariable Long id) {
         Cykelrytter cykelrytter = cykelrytterService.getCykelrytterById(id);
-        CykelrytterDTO cykelrytterDTO = cykelrytterToDTO(cykelrytter);
+        CykelrytterDTO cykelrytterDTO = DTOConverter.cykelrytterToDTO(cykelrytter);
         return new ResponseEntity<>(cykelrytterDTO, HttpStatus.OK);
     }
 
-    // todo move to util class
-    private CykelrytterDTO cykelrytterToDTO(Cykelrytter cykelrytter) {
-        CykelrytterDTO cykelrytterDTO = new CykelrytterDTO();
-        BeanUtils.copyProperties(cykelrytter, cykelrytterDTO);
-        cykelrytterDTO.setCykelhold(convertToCykelholdDTO(cykelrytter.getCykelhold()));
-        return cykelrytterDTO;
-    }
-
-    private CykelholdDTO convertToCykelholdDTO(Cykelhold cykelhold) {
-        return new CykelholdDTO(cykelhold.getId(), cykelhold.getNavn());
-    }
+//    // todo move to util class
+//    private CykelrytterDTO cykelrytterToDTO(Cykelrytter cykelrytter) {
+//        CykelrytterDTO cykelrytterDTO = new CykelrytterDTO();
+//        BeanUtils.copyProperties(cykelrytter, cykelrytterDTO);
+//        cykelrytterDTO.setCykelhold(convertToCykelholdDTO(cykelrytter.getCykelhold()));
+//        return cykelrytterDTO;
+//    }
+//
+//    private CykelholdDTO convertToCykelholdDTO(Cykelhold cykelhold) {
+//        return new CykelholdDTO(cykelhold.getId(), cykelhold.getNavn());
+//    }
 
 
 
@@ -79,5 +78,11 @@ public class CykelrytterController {
     public ResponseEntity<Void> deleteCykelrytter(@PathVariable Long id) {
         cykelrytterService.deleteCykelrytter(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    // extra
+    @GetMapping("/jersey")
+    public List<JerseysDTO> getTrøjer() {
+        return cykelrytterService.getTrøjer();
     }
 }

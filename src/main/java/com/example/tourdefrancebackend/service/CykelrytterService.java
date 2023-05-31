@@ -1,18 +1,18 @@
 package com.example.tourdefrancebackend.service;
 
+import com.example.tourdefrancebackend.dto.JerseysDTO;
 import com.example.tourdefrancebackend.entity.Cykelrytter;
 import com.example.tourdefrancebackend.repository.CykelrytterRepository;
-import com.example.tourdefrancebackend.utility.ResourceNotFoundException;
+import com.example.tourdefrancebackend.utility.DTOConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
 import java.util.Optional;
+
+import static com.example.tourdefrancebackend.enums.Jersey.*;
 
 @Service
 public class CykelrytterService {
@@ -61,6 +61,28 @@ public class CykelrytterService {
         // Please implement this method based on your needs
         return cykelrytterRepository.findByCykelholdId(holdId);
     }
+
+    public List<JerseysDTO> getTrøjer() {
+        return calculateJerseys();
+    }
+
+    private List<JerseysDTO> calculateJerseys() {
+        Cykelrytter yellowJerseyRider = cykelrytterRepository.findFirstByOrderBySamletTidAsc();
+        Cykelrytter mountainJerseyRider = cykelrytterRepository.findFirstByOrderByBjergpointDesc();
+        Cykelrytter greenJerseyRider = cykelrytterRepository.findFirstByOrderBySpurtpointDesc();
+        Cykelrytter whiteJerseyRider = cykelrytterRepository.findFirstBySamletTidOrderByAlderAsc(26);
+
+        List<JerseysDTO> jerseys = new ArrayList<>();
+
+        if (yellowJerseyRider != null) jerseys.add(DTOConverter.convertToJerseysDTO(yellowJerseyRider, "YELLOW"));
+        if (mountainJerseyRider != null) jerseys.add(DTOConverter.convertToJerseysDTO(mountainJerseyRider, "BJERG"));
+        if (greenJerseyRider != null) jerseys.add(DTOConverter.convertToJerseysDTO(greenJerseyRider, "GREEN"));
+        if (whiteJerseyRider != null) jerseys.add(DTOConverter.convertToJerseysDTO(whiteJerseyRider, "HVID"));
+
+        return jerseys;
+    }
+
+
 }
 
 
