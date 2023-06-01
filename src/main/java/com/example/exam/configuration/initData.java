@@ -7,7 +7,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.Month;
+import java.time.temporal.TemporalAdjusters;
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -39,6 +43,7 @@ public class initData implements CommandLineRunner {
 
         // data to be initialized
         createPlaceholder();
+//        createSeason();
     }
 
     void createPlaceholder() {
@@ -60,6 +65,31 @@ public class initData implements CommandLineRunner {
 
         List<Race> races = raceRepository.findAll();
         System.out.println(races);
+    }
+
+    // Opgave 3 - A: Create a season
+    void createSeason() {
+        // inclusive range for both start and end date todo fix later
+        LocalDate startDate = LocalDate.of(LocalDate.now().getYear(), Month.MAY, 1);
+        LocalDate endDate = LocalDate.of(LocalDate.now().getYear(), Month.OCTOBER, 1);
+
+        List<Race> seasonRaces = new ArrayList<>();
+
+        // within range find first Wednesday
+        LocalDate current = startDate.with(TemporalAdjusters.nextOrSame(DayOfWeek.WEDNESDAY));
+
+        while (!current.isAfter(endDate)) {
+            // Create a race for each boat type
+            for (BoatType boatType : BoatType.values()) {
+                seasonRaces.add(new Race(null, current, boatType, null));
+            }
+
+            // Move to the next Wednesday
+            current = current.plusWeeks(1);
+        }
+
+        // Save all races to the database
+        raceRepository.saveAll(seasonRaces);
     }
 
 }

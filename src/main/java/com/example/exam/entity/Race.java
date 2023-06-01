@@ -31,6 +31,4 @@ public class Race {
     @JsonBackReference
     @OneToMany(mappedBy = "race")
     private List<RaceResult> raceResults = new ArrayList<>();
-
-    // getters and setters
 }

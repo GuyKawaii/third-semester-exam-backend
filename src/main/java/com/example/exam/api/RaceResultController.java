@@ -1,5 +1,6 @@
 package com.example.exam.api;
 
+import com.example.exam.dto.RaceDTO;
 import com.example.exam.entity.RaceResult;
 import com.example.exam.service.RaceResultService;
 import com.example.exam.utility.ResourceNotFoundException;
@@ -20,6 +21,7 @@ public class RaceResultController {
         this.raceResultService = raceResultRepository;
     }
 
+    // Default CRUD
     @GetMapping("/sailboat/{id}")
     public List<RaceResult> getRaceResultsBySailboatId(@PathVariable Long id) {
         return raceResultService.getRaceResultsBySailboatId(id);
