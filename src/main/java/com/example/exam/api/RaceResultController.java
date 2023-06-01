@@ -53,7 +53,7 @@ public class RaceResultController {
         return ResponseEntity.ok(raceResultService.createRaceResult(raceResult));
     }
 
-    @PutMapping("/{id}") // todo add validation for invalid
+    @PutMapping("/{id}")
     public ResponseEntity<RaceResult> updateRace(@PathVariable Long id, @RequestBody RaceResult raceResultDetails) {
         RaceResult updatedRace = raceResultService.updateRaceResult(id, raceResultDetails);
         return new ResponseEntity<>(updatedRace, HttpStatus.OK);

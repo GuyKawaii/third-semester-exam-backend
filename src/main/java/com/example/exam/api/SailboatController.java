@@ -42,7 +42,7 @@ public class SailboatController {
         return ResponseEntity.ok(sailboatService.createSailboat(sailboat));
     }
 
-    @PutMapping("/{id}") // todo add validation for invalid
+    @PutMapping("/{id}")
     public ResponseEntity<Sailboat> updateSailboat(@PathVariable Long id, @RequestBody Sailboat sailboatDetails) {
         Sailboat updatedSailboat = sailboatService.updateSailboat(id, sailboatDetails);
         return new ResponseEntity<>(updatedSailboat, HttpStatus.OK);

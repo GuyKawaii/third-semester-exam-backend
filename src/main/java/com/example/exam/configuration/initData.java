@@ -69,9 +69,9 @@ public class initData implements CommandLineRunner {
 
     // Opgave 3 - A: Create a season
     void createSeason() {
-        // inclusive range for both start and end date todo fix later
+        // inclusive range for both start and end date
         LocalDate startDate = LocalDate.of(LocalDate.now().getYear(), Month.MAY, 1);
-        LocalDate endDate = LocalDate.of(LocalDate.now().getYear(), Month.OCTOBER, 1);
+        LocalDate endDate = LocalDate.of(LocalDate.now().getYear(), Month.OCTOBER, 31);
 
         List<Race> seasonRaces = new ArrayList<>();
 
