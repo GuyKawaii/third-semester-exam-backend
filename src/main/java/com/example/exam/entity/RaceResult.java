@@ -1,6 +1,5 @@
 package com.example.exam.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,19 +11,19 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Cykelrytter {
+public class RaceResult {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String navn;
-    private int alder;
-    private int samletTid;
-    private int bjergpoint;
-    private int spurtpoint;
+    @ManyToOne
+    @JoinColumn(name = "sailboat_id", nullable = false)
+    private Sailboat sailboat;
 
     @ManyToOne
-    @JsonBackReference
-    private Cykelhold cykelhold;
-}
+    @JoinColumn(name = "race_id", nullable = false)
+    private Race race;
 
+    @Column(nullable = false)
+    private Integer points;
+}

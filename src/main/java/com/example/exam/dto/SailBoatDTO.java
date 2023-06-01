@@ -9,12 +9,8 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CykelrytterDTO {
+public class SailBoatDTO {
     private Long id;
-    private String navn;
-    private int alder;
-    private int samletTid;
-    private int bjergpoint;
-    private int spurtpoint;
-    private CykelholdDTO Cykelhold;
+    private String name;
+    private String boatType;
 }

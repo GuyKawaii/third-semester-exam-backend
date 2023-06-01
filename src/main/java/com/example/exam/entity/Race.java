@@ -1,5 +1,7 @@
 package com.example.exam.entity;
 
+import com.example.exam.enums.BoatType;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,6 +10,7 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -19,10 +22,15 @@ public class Race {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private LocalDate date;
 
-    private int placement;
+    @Column(nullable = false)
+    private BoatType boatType;
 
-    @ManyToOne
-    private Sailboat sailboat;
+    @JsonBackReference
+    @OneToMany(mappedBy = "race")
+    private List<RaceResult> raceResults = new ArrayList<>();
+
+    // getters and setters
 }
