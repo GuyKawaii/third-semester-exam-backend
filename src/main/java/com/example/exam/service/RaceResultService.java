@@ -51,4 +51,12 @@ public class RaceResultService {
             throw new ResourceNotFoundException("RaceResult not found with id " + id);
         }
     }
+
+    public List<RaceResult> getRaceResultsBySailboatId(Long id) {
+        return raceResultRepository.findBySailboatId(id);
+    }
+
+    public List<RaceResult> getRaceResultsByRaceId(Long id) {
+        return raceResultRepository.findByRaceId(id);
+    }
 }

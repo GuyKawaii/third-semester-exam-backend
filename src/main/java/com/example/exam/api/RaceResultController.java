@@ -20,7 +20,17 @@ public class RaceResultController {
         this.raceResultService = raceResultRepository;
     }
 
+    @GetMapping("/sailboat/{id}")
+    public List<RaceResult> getRaceResultsBySailboatId(@PathVariable Long id) {
+        return raceResultService.getRaceResultsBySailboatId(id);
+    }
 
+    @GetMapping("/race/{id}")
+    public List<RaceResult> getRaceResultsByRaceId(@PathVariable Long id) {
+        return raceResultService.getRaceResultsByRaceId(id);
+    }
+
+    // Default CRUD
     @GetMapping
     public ResponseEntity<List<RaceResult>> getAllRaces() {
         return ResponseEntity.ok(raceResultService.getAllRaceResults());
