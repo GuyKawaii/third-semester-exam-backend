@@ -35,6 +35,11 @@ public class RaceController {
         return new ResponseEntity<>(resultDTOs, HttpStatus.OK);
     }
 
+    @GetMapping("count")
+    public ResponseEntity<Long> countRaces() {
+        return ResponseEntity.ok(raceService.countRaces());
+    }
+
     // Default CRUD
     @GetMapping
     public ResponseEntity<List<Race>> getAllRaces() {

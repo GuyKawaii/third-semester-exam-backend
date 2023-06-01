@@ -54,4 +54,8 @@ public class SailboatService {
             throw new ResourceNotFoundException("Sailboat not found with id " + id);
         }
     }
+
+    public long getTotalSailboatsCount() {
+        return sailboatRepository.count();
+    }
 }

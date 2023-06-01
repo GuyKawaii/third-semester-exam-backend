@@ -20,6 +20,13 @@ public class SailboatController {
         this.sailboatService = sailboatService;
     }
 
+    // Custom
+    @GetMapping("/count")
+    public long getSailboatCount() {
+        return sailboatService.getTotalSailboatsCount();
+    }
+
+    // Default CRUD
     @GetMapping
     public ResponseEntity<List<Sailboat>> getAllSailboats() {
         return ResponseEntity.ok(sailboatService.getAllSailboats());

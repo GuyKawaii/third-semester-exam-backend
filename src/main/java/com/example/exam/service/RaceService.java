@@ -93,4 +93,7 @@ public class RaceService {
         }
     }
 
+    public Long countRaces() {
+        return raceRepository.count();
+    }
 }
