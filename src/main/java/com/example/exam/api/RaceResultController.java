@@ -21,6 +21,12 @@ public class RaceResultController {
         this.raceResultService = raceResultRepository;
     }
 
+    // Custom
+    @GetMapping("count")
+    public Long countRaceResults() {
+        return raceResultService.countRaceResults();
+    }
+
     // Default CRUD
     @GetMapping("/sailboat/{id}")
     public List<RaceResult> getRaceResultsBySailboatId(@PathVariable Long id) {

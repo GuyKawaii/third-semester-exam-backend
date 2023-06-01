@@ -59,4 +59,8 @@ public class RaceResultService {
     public List<RaceResult> getRaceResultsByRaceId(Long id) {
         return raceResultRepository.findByRaceId(id);
     }
+
+    public Long countRaceResults() {
+        return raceResultRepository.count();
+    }
 }
