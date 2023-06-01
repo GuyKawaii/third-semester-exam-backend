@@ -8,9 +8,9 @@ import java.util.List;
 
 @Repository
 public interface RaceResultRepository extends JpaRepository<RaceResult, Long> {
+ /// OrderByDateAsc
+    List<RaceResult> findBySailboatIdOrderByPointsAsc(Long id);
 
-    List<RaceResult> findBySailboatId(Long id);
-
-    List<RaceResult> findByRaceId(Long id);
+    List<RaceResult> findByRaceIdOrderByPointsAsc(Long id);
 }
 

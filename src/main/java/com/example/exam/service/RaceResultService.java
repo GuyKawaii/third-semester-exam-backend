@@ -53,11 +53,11 @@ public class RaceResultService {
     }
 
     public List<RaceResult> getRaceResultsBySailboatId(Long id) {
-        return raceResultRepository.findBySailboatId(id);
+        return raceResultRepository.findBySailboatIdOrderByPointsAsc(id);
     }
 
     public List<RaceResult> getRaceResultsByRaceId(Long id) {
-        return raceResultRepository.findByRaceId(id);
+        return raceResultRepository.findByRaceIdOrderByPointsAsc(id);
     }
 
     public Long countRaceResults() {

@@ -59,7 +59,7 @@ public class RaceService {
 
     // ### Default CRUD ###
     public List<Race> getAllRaces() {
-        return raceRepository.findAll();
+        return raceRepository.findAllByOrderByDateAsc();
     }
 
     public Optional<Race> getRace(Long id) {
