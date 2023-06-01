@@ -2,11 +2,17 @@ package com.example.exam.configuration;
 
 import com.example.exam.entity.Cykelhold;
 import com.example.exam.entity.Cykelrytter;
+import com.example.exam.entity.Sailboat;
+import com.example.exam.enums.BoatType;
 import com.example.exam.repository.CykelholdRepository;
 import com.example.exam.repository.CykelrytterRepository;
+import com.example.exam.repository.SailboatRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class initData implements CommandLineRunner {
@@ -16,11 +22,13 @@ public class initData implements CommandLineRunner {
 
     private final CykelholdRepository cykelholdRepository;
     private final CykelrytterRepository cykelrytterRepository;
+    private final SailboatRepository sailboatRepository;
 
 
-    public initData(CykelholdRepository cykelholdRepository, CykelrytterRepository cykelrytterRepository) {
+    public initData(CykelholdRepository cykelholdRepository, CykelrytterRepository cykelrytterRepository, SailboatRepository sailboatRepository) {
         this.cykelholdRepository = cykelholdRepository;
         this.cykelrytterRepository = cykelrytterRepository;
+        this.sailboatRepository = sailboatRepository;
     }
 
 
@@ -34,10 +42,18 @@ public class initData implements CommandLineRunner {
         }
 
         // data to be initialized
-        createHold();
+//        createHold();
+        createSailboats();
     }
 
+    void createSailboats() {
+        List<Sailboat> sailboats = new ArrayList<>();
+        sailboats.add(new Sailboat(1L, "Sailboat middle", BoatType.BETWEEN_25_AND_40_FEET));
+        sailboats.add(new Sailboat(2L, "Sailboat short", BoatType.LESS_THAN_25_FEET));
+        sailboats.add(new Sailboat(3L, "Sailboat long", BoatType.LONGER_THAN_40_FEET));
 
+        sailboatRepository.saveAll(sailboats);
+    }
 
     void createHold() {
         Cykelhold hold1 = new Cykelhold();
