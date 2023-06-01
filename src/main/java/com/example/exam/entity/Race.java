@@ -29,6 +29,6 @@ public class Race {
     private BoatType boatType;
 
     @JsonBackReference
-    @OneToMany(mappedBy = "race")
+    @OneToMany(mappedBy = "race", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<RaceResult> raceResults = new ArrayList<>();
 }

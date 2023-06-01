@@ -28,6 +28,6 @@ public class Sailboat {
     private BoatType boatType;
 
     @JsonBackReference
-    @OneToMany(mappedBy = "sailboat")
+    @OneToMany(mappedBy = "sailboat", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<RaceResult> raceResults = new ArrayList<>();
 }
