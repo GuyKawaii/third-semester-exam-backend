@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>Tour-De-France-backend</artifactId>
+	<artifactId>third-semester-exam-backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Tour-De-France-backend</name>
 	<description>Tour-De-France-backend</description>
