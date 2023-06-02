@@ -69,16 +69,16 @@ public class initData implements CommandLineRunner {
 
     // Opgave 3 - A: Create a season
     void createSeason() {
-        // inclusive range for both start and end date
+        // inclusive start - exclusive end
         LocalDate startDate = LocalDate.of(LocalDate.now().getYear(), Month.MAY, 1);
-        LocalDate endDate = LocalDate.of(LocalDate.now().getYear(), Month.OCTOBER, 31);
+        LocalDate endDate = LocalDate.of(LocalDate.now().getYear(), Month.JUNE, 1);
 
         List<Race> seasonRaces = new ArrayList<>();
 
         // within range find first Wednesday
         LocalDate current = startDate.with(TemporalAdjusters.nextOrSame(DayOfWeek.WEDNESDAY));
 
-        while (!current.isAfter(endDate)) {
+        while (current.isBefore(endDate)) {
             // Create a race for each boat type
             for (BoatType boatType : BoatType.values()) {
                 seasonRaces.add(new Race(null, current, boatType, null));
