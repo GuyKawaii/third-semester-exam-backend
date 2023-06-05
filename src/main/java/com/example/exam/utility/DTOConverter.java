@@ -9,6 +9,7 @@ import com.example.exam.entity.RaceResult;
 import com.example.exam.entity.Sailboat;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,13 +19,15 @@ public class DTOConverter {
     // sailboatToDTO specific
     public SailboatCumulativeResultDTO convertToSailboatCumulativeResultDTO(Sailboat sailboat) {
         SailboatCumulativeResultDTO sailboatDTO = new SailboatCumulativeResultDTO();
-        sailboatDTO.setId(sailboat.getId());
-        sailboatDTO.setName(sailboat.getName());
-        sailboatDTO.setBoatType(sailboat.getBoatType());
+        BeanUtils.copyProperties(sailboat, sailboatDTO);
+//        sailboatDTO.setId(sailboat.getId());
+//        sailboatDTO.setName(sailboat.getName());
+//        sailboatDTO.setBoatType(sailboat.getBoatType());
         sailboatDTO.setTotalRaces(sailboat.getRaceResults().size());
         sailboatDTO.setTotalPoints(sailboat.getRaceResults().stream()
-                .mapToInt(RaceResult::getPoints)
-                .sum());
+//                .mapToInt(RaceResult::getPoints)
+//                .sum());
+                .reduce(0, (sum, raceResult) -> sum + raceResult.getPoints(), Integer::sum));
         return sailboatDTO;
     }
 
