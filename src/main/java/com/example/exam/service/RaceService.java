@@ -34,6 +34,9 @@ public class RaceService {
         this.dtoConverter = dtoConverter1;
     }
 
+    // map .map(elm -> elm.getSomething())
+    // filter .filter(elm -> elm.getSomething() > 10)
+    // reduce .reduce(0, (acc, elm) -> acc + elm.getSomething())
     // ### Custom ###
     public List<SailboatCumulativeResultDTO> getAllSailboatCumulativeResultsDTO() {
         List<Sailboat> sailboats = sailboatRepository.findAll();
