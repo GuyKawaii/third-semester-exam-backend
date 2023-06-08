@@ -27,11 +27,11 @@ public class RaceService {
     private final SailboatRepository sailboatRepository;
     private final DTOConverter dtoConverter;
 
-    public RaceService(RaceRepository RaceRepository, RaceResultRepository raceResultRepository, DTOConverter dtoConverter, SailboatRepository sailboatRepository, DTOConverter dtoConverter1) {
+    public RaceService(RaceRepository RaceRepository, RaceResultRepository raceResultRepository, DTOConverter dtoConverter, SailboatRepository sailboatRepository) {
         this.raceRepository = RaceRepository;
         this.raceResultRepository = raceResultRepository;
         this.sailboatRepository = sailboatRepository;
-        this.dtoConverter = dtoConverter1;
+        this.dtoConverter = dtoConverter;
     }
 
     // map .map(elm -> elm.getSomething())
